@@ -15,10 +15,10 @@ requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 #httpproxy = cfg.chatgpt_httpproxy
 httpproxy = '127.0.0.1:7890' 
 #如果要关闭代理直接访问，比如本地有加速器，则proxy_falg = '0';
-proxy_flag = '1' 
+proxy_flag = '0' 
 
 def question(cont):
-    url= "https://api.openai.com/v1/chat/completions"
+    url= "https://chat.beyondfuture.com.cn/v1/chat/completions"
        
     session = requests.Session()
     session.verify = False
