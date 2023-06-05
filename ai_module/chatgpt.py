@@ -61,7 +61,7 @@ def question(cont):
         
 
     except requests.exceptions.RequestException as e:
-        print(f"请求失败: {e}")
+        print(f"请求失败: {e}") 
         response_text = "抱歉，我现在太忙了，休息一会，请稍后再试。"
 
 

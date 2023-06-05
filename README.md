@@ -104,25 +104,21 @@
 
 ## Installation
 
-### Environments
-- Python 3.9、3.10
-- Windows、macos、linux
+1. Available Environments
+   - Python 3.9、3.10
+   - Windows、macos、linux
+2. Install the Requirements
+    ```shell
+    pip install -r requirements.txt
+    ```
+3. Configure the secret key
+   + 查看 [AI 模块](#ai-模块)
+   + 浏览链接，注册并创建应用，将应用密钥填入 `./system.conf` 中
 
-### Requirements
-
-```shell
-pip install -r requirements.txt
-```
-
-### Config the secret key
-+ 查看 [AI 模块](#ai-模块)
-+ 浏览链接，注册并创建应用，将应用密钥填入 `./system.conf` 中
-
-### Run
-启动 Fay 控制器
-```shell
-python main.py
-```
+4. Run the Fay controller
+    ```shell
+    python main.py
+    ```
 
 ### AI Modules
 启动前需填入应用密钥

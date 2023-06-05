@@ -15,13 +15,13 @@
         "QnA": "qa_demo.xlsx",
         "maxInteractTime": 15,
         "perception": {
-            "chat": 29,
-            "follow": 29,
-            "gift": 29,
-            "indifferent": 29,
-            "join": 29
+            "chat": 37,
+            "follow": 37,
+            "gift": 37,
+            "indifferent": 37,
+            "join": 37
         },
-        "playSound": false,
+        "playSound": true,
         "visualization": false
     },
     "items": [
@@ -46,8 +46,8 @@
             "url": "\u65b0\u7248\u672c\u4e0d\u7528\u586b\u5199"
         },
         "record": {
-            "device": "MacBook Pro Microphone",
-            "enabled": false
+            "device": "MacBook Pro Speakers",
+            "enabled": true
         }
     }
 }

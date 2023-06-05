@@ -22,7 +22,7 @@ from core.tts_voice import EnumVoice
 from scheduler.thread_manager import MyThread
 from utils import util, storer, config_util
 from ai_module import yuan_1_0
-from ai_module import chatgpt
+from ai_module import chatgpt, chatgpt_chatbot
 import pygame
 from utils import config_util as cfg
 from core.content_db import Content_Db
@@ -31,6 +31,10 @@ from ai_module import nlp_rasa
 from ai_module import nlp_gpt
 from ai_module import yolov8
 from ai_module import nlp_VisualGLM as VisualGLM
+
+cfg.load_config()
+
+chatbot = chatgpt_chatbot.ChatBot()
 
 #文本消息处理
 def send_for_answer(msg,sendto):
@@ -51,7 +55,7 @@ def send_for_answer(msg,sendto):
                 elif cfg.key_chat_module == 'yuan':
                     text = yuan_1_0.question(msg)
                 elif cfg.key_chat_module == 'chatgpt':
-                    text = chatgpt.question(msg)
+                    text = chatbot.question(msg)
                 elif cfg.key_chat_module == 'rasa':
                     textlist = nlp_rasa.question(msg)
                     text = textlist[0]['text']    

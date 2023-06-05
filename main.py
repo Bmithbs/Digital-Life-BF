@@ -35,18 +35,18 @@ if __name__ == '__main__':
     __clear_samples()
     __clear_songs()
     config_util.load_config()
-    dbstatus = os.path.exists("fay.db")
-    if(dbstatus == False):
+    dbstatus = os.path.exists("fay.db")  # 打开数据库
+    if dbstatus == False:
          contentdb = Content_Db()
-         contentdb.init_db()     
+         contentdb.init_db()             # 如果没有数据库，那么初始化数据库  
     ws_server = wsa_server.new_instance(port=10002)
     ws_server.start_server()
     web_ws_server = wsa_server.new_web_instance(port=10003)
     web_ws_server.start_server()
-    #Edit by xszyou in 20230516:增加本地asr后，aliyun调成可选配置
+    # 增加本地asr后，aliyun调成可选配置
     if config_util.ASR_mode == "ali" and config_util.config['source']['record']['enabled']:
         ali_nls.start()
-    flask_server.start()
+    flask_server.start() # 打开falsk服务
     app = QApplication(sys.argv)
     app.setWindowIcon(QtGui.QIcon('icon.png'))
     win = MainWindow()
