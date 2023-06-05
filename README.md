@@ -81,7 +81,7 @@
 
 ## Roadmap
 
-- [ ] GPT Memory
+- [x] GPT Memory
 - [ ] Memory Selector
 - [ ] Memory information set
 - [ ] Autonomous simulation of conversational style
