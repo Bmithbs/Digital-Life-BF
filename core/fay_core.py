@@ -33,7 +33,6 @@ from ai_module import yolov8
 from ai_module import nlp_VisualGLM as VisualGLM
 
 cfg.load_config()
-
 chatbot = chatgpt_chatbot.ChatBot()
 
 #文本消息处理

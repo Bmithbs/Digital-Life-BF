@@ -11,7 +11,7 @@
 - UE5 工程：https://github.com/xszyou/fay-ue5
 - 视频三维重建（真人 2D 驱动）：https://github.com/waityousea/xuniren
 
-## Fay 数字人助理版
+## Digital Life 
 
 - PC 远程助理 [`PC demo`](https://github.com/TheRamU/Fay/tree/main/python_connector_demo)
 - 手机远程助理 [`android demo`](https://github.com/TheRamU/Fay/tree/main/android_connector_demo)
@@ -24,7 +24,7 @@
 
 - 与远程音频输入输出设备连接（非必须，外网需要配置 http://ngrok.cc tcp 通道的 clientid）
 
-  - 控制器与采用 socket（非 websocket) 方式与 音频输出设备通讯
+  - 控制器与采用 socket（非 websocket）方式与 音频输出设备通讯
   - 内网通讯地址：[`ws://127.0.0.1:10001`](ws://127.0.0.1:10001)
   - 外网通讯地址：通过 http://ngrok.cc 获取
   - 消息格式：参考 [remote_audio.py](https://github.com/TheRamU/Fay/blob/main/python_connector_demo/remote_audio.py)
@@ -82,9 +82,12 @@
 ## Roadmap
 
 - [x] GPT Memory
-- [ ] Memory Selector
-- [ ] Memory information set
-- [ ] Autonomous simulation of conversational style
+- [x] Memory information set
+- [ ] Memory Selector (Use Agent)
+- [ ] Autonomous simulation of conversational style (Can refer to the GirlfriendGPT)
+- [ ] Streaming output
+- [ ] docker deployment
+- [ ] The problem of token limitation
 
 ## Upgrade log
 
@@ -105,8 +108,8 @@
 ## Installation
 
 1. Available Environments
-   - Python 3.9、3.10
-   - Windows、macos、linux
+   - Python 3.9, 3.10
+   - Windows, MacOS, Linux
 2. Install the Requirements
     ```shell
     pip install -r requirements.txt
@@ -140,7 +143,7 @@
 
 ### 使用说明
 
-+ 语音助理：fay 控制器（麦克风输入源开启、面板播放开启）；
++ **语音助理**：fay 控制器（麦克风输入源开启、面板播放开启）；
 + 远程语音助理：fay 控制器（面板播放关闭）+ 远程设备接入；
 + 数字人互动：fay 控制器（麦克风输入源开启、面板播放关闭、填写性格 Q&A）+ 数字人；
 + 贾维斯、Her：加入我们一起完成。

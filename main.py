@@ -1,7 +1,6 @@
 import os
 import sys
 from io import BytesIO
-
 from PyQt5 import QtGui
 from PyQt5.QtWidgets import QApplication
 

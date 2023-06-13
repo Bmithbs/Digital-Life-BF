@@ -1,25 +1,34 @@
 import requests
 import time
 import sys
-from utils import config_util as cfg
 import os
+from utils import config_util as cfg
 
 from langchain.llms import OpenAI
 from langchain.memory import ConversationBufferMemory   # Chat specific components
 from langchain import LLMChain
 from langchain.prompts.prompt import PromptTemplate
+from langchain import OpenAI
+import pickle
+import argparse
+from langchain.chat_models import ChatOpenAI
+from langchain.vectorstores import Chroma
+from langchain.embeddings.openai import OpenAIEmbeddings
+
 
 class ChatBot():
-    def __init__(self, ):
+    def __init__(self):
         self.template = """
             你是一个数字生命，你要回答人类的问题，不要用长篇大论去回答，回答要精简，20个字以内
-
+            
+            下面是一些相关的记忆，你可以参考一下：
+            {memory}
             {chat_history}
             Human: {human_input}
             Chatbot:
             """
         self.prompt=PromptTemplate(
-            input_variables=["chat_history", "human_input"],
+            input_variables=["chat_history", "human_input", "memory"],
             template=self.template)
         self.openai_api_key = cfg.key_chatgpt_api_key
         self.llm = OpenAI(
@@ -34,18 +43,25 @@ class ChatBot():
                 memory=self.memory,
                 verbose=True
             )
+        self.embedding = OpenAIEmbeddings(openai_api_key=cfg.key_chatgpt_api_key)
+        self.persist_directory = './memory'
+        self.memoryDB = Chroma(embedding_function=self.embedding, persist_directory=self.persist_directory)
+        
 
     def question(self, cont):
-        
-        response_text = self.llm_chain.predict(human_input=cont)
-        print(self.memory)
+        related_memory = self.memoryDB.similarity_search(cont)
+        # self.prompt.format(memory=related_memory)
+        response_text = self.llm_chain.predict(human_input=cont, memory=related_memory)
+        print(self.prompt)
         return response_text
 
+
 if __name__ == "__main__":
-    #测试代理模式
+    from utils import config_util as cfg
+    cfg.load_config()
     chatbot = ChatBot()
+
     for i in range(3):
-        
         query = f"1+{i}=多少"
         response = chatbot.question(query)      
         print(response)    
