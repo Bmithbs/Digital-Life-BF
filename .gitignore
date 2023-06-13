@@ -131,8 +131,8 @@ dmypy.json
 system.conf
 test.py
 test.ipynb
-./memory/raw_memory/
-./memory/index
-./memory/*.parquet
-./chroma
-./faiss_index
+memory/raw_memory/
+memory/index
+memory/*.parquet
+.chroma
+faiss_index/
