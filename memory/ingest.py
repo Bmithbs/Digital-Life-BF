@@ -4,13 +4,11 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from pathlib import Path
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.document_loaders import TextLoader
-import time 
-from utils import config_util as cfg
-openai_api_key = cfg.key_chatgpt_api_key
+import time    
+import os
 
-def ingest(memory_path="raw_memory/lsc.txt", database_path="./"):
-# Here we load in the data in the format that Notion exports it in.
-    embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
+def ingest(memory_path="raw_memory/lsc.txt", database_path="./", key):
+    embedding = OpenAIEmbeddings(openai_api_key=key)
 
     loader = TextLoader(memory_path) # source
     documents = loader.load()
@@ -26,5 +24,10 @@ def ingest(memory_path="raw_memory/lsc.txt", database_path="./"):
     db.persist()
 
 if __name__ == "__main__":
-    
-    ingest()
+    import os
+    api_key = os.getenv('openai_api_key')
+    if api_key:
+        print('API key found, start ingesting...')
+        ingest(key=api_key)
+    else:
+        print('API key not found, please export the OpenAI API key as the environment variable')
