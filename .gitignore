@@ -138,3 +138,5 @@ memory/*.parquet
 faiss_index
 
 .DS_Store
+logs
+yolov8n-pose.pt
