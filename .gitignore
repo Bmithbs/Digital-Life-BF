@@ -136,3 +136,5 @@ memory/index
 memory/*.parquet
 .chroma
 faiss_index/
+
+.DS_Store
