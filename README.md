@@ -63,7 +63,6 @@
 │   ├── fay_core.py         # 数字人核心模块
 │   ├── recorder.py         # 录音器
 │   ├── tts_voice.py        # 语音生源枚举
-│   ├── viewer.py           # 抖音直播间接入模块
 │   └── wsa_server.py       # WebSocket 服务端
 ├── gui                     # 图形界面
 │   ├── flask_server.py     # Flask 服务端
@@ -91,7 +90,15 @@
 - [ ] Docker deployment (This may be complated after the UI)
 - [ ] Add agents
 
-## Upgrade log
+**2023.06.14：**
+
++ 解决多声道麦克风兼容问题；
++ 重构fay_core.py及fay_booter.py代码；
++ ui适应布局调整；
++ 恢复声音选择；
++ ”思考中...“显示逻辑修复。
+
+**2023.05.27：**
 
 2023.05.27：
 
