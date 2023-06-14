@@ -6,7 +6,7 @@ from core.fay_core import FeiFei
 from scheduler.thread_manager import MyThread
 from utils import util, config_util, stream_util, ngrok_util
 from core.wsa_server import MyServer
-
+# 核心启动模块
 feiFei: FeiFei = None
 recorderListener: Recorder = None
 

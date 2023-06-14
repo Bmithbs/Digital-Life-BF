@@ -31,11 +31,15 @@ class ChatBot():
             input_variables=["chat_history", "human_input", "memory"],
             template=self.template)
         self.openai_api_key = cfg.key_chatgpt_api_key
+        self.temperature = cfg.chatgpt_temperature
+        self.temperature=float(self.temperature)
+
         self.llm = OpenAI(
-            temperature=0.7,
+            temperature=self.temperature,
             openai_api_base="https://www.beyondfuture.com.cn/v1",
             openai_api_key=self.openai_api_key)
         
+
         self.memory=ConversationBufferMemory(memory_key="chat_history")
         self.llm_chain = LLMChain(
                 llm=self.llm,
@@ -46,17 +50,19 @@ class ChatBot():
         self.embedding = OpenAIEmbeddings(openai_api_key=cfg.key_chatgpt_api_key)
         self.persist_directory = './memory'
         self.memoryDB = Chroma(embedding_function=self.embedding, persist_directory=self.persist_directory)
-        
 
-    def question(self, cont):
+    def question(self, cont:str):
         related_memory = self.memoryDB.similarity_search(cont)
+        first_shot_memory = related_memory[0].page_content
+
         # self.prompt.format(memory=related_memory)
-        response_text = self.llm_chain.predict(human_input=cont, memory=related_memory)
+        response_text = self.llm_chain.predict(human_input=cont, memory=first_shot_memory)
         print(self.prompt)
         return response_text
 
 
 if __name__ == "__main__":
+    # 测试
     from utils import config_util as cfg
     cfg.load_config()
     chatbot = ChatBot()

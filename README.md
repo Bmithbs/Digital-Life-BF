@@ -183,5 +183,5 @@
 2. [非常全面的数字人解决方案_郭泽斌之心的博客-CSDN 博客_数字人算法](https://blog.csdn.net/aa84758481/article/details/124758727)
 3. 【开源项目：数字人 FAY——Fay 新架构使用讲解】 https://www.bilibili.com/video/BV1NM411B7Ab/?share_source=copy_web&vd_source=64cd9062f5046acba398177b62bea9ad
 4. 【开源项目 FAY——UE 工程讲解】https://www.bilibili.com/video/BV1C8411P7Ac?vd_source=64cd9062f5046acba398177b62bea9ad
-5. m1 机器安装办法（Gason 提供）：https://www.zhihu.com/question/437075754
+5. m1 机器安装办法：https://www.zhihu.com/question/437075754
 6. bilbil 主页：[xszyou 的个人空间_哔哩哔哩_bilibili](https://space.bilibili.com/2111554564)
