@@ -83,11 +83,13 @@
 
 - [x] GPT Memory
 - [x] Memory information set
+- [x] The problem of token limitation
 - [ ] Memory Selector (Use Agent)
-- [ ] Autonomous simulation of conversational style (Can refer to the GirlfriendGPT)
+- [ ] Autonomous simulation of conversational style (Can refer to the GirlfriendGPT; In the ingestion precessing)
 - [ ] Streaming output
-- [ ] docker deployment
-- [ ] The problem of token limitation
+- [ ] Construct a web UI 
+- [ ] Docker deployment (This may be complated after the UI)
+- [ ] Add agents
 
 ## Upgrade log
 

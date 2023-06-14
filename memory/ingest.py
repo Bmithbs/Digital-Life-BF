@@ -7,7 +7,7 @@ from langchain.document_loaders import TextLoader
 import time    
 import os
 
-def ingest(memory_path="raw_memory/lsc.txt", database_path="./", key):
+def ingest(memory_path="raw_memory/lsc.txt", database_path="./", key=None):
     embedding = OpenAIEmbeddings(openai_api_key=key)
 
     loader = TextLoader(memory_path) # source
